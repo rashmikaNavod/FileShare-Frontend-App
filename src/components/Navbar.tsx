@@ -19,24 +19,21 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex items-center justify-between h-16 px-6">
         {/* logo */}
         <Link href={isAuthenticated ? "/dashboard" : "/"} className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center">
-            <HiOutlineShare className="w-4 h-4 text-white" />
-          </div>
-          <span className="text-lg font-semibold text-white tracking-tight group-hover:text-violet-300 transition-colors">
-            FileShare
+          <span className="text-lg font-semibold text-white tracking-light">
+            <span className="font-semibold">File</span><span className="font-light"> Share</span>
           </span>
         </Link>
 
         {/* right */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {isAuthenticated ? (
             <>
-              <span className="hidden sm:inline text-sm uppercase text-zinc-400">
+              <span className="hidden sm:inline text-sm uppercase text-[#8ab4f8]">
                 {username}
               </span>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-sm bg-[#91b2dd] text-black cursor-pointer"
               >
                 <HiOutlineLogout className="w-4 h-4" />
                 Logout
@@ -46,13 +43,13 @@ export default function Navbar() {
             <>
               <Link
                 href="/login"
-                className="text-sm text-zinc-400 hover:text-white transition-colors"
+                className="text-sm text-[#8ab4f8] hover:text-white py-2 px-4 rounded-sm hover:bg-white/10"
               >
                 Login
               </Link>
               <Link
                 href="/register"
-                className="text-sm px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-colors"
+                className="text-sm font-medium px-4 py-2 rounded-sm bg-[#91b2dd] text-black transition-colors"
               >
                 Sign Up
               </Link>

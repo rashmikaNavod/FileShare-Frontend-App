@@ -81,7 +81,7 @@ export default function DashboardPage() {
         </div>
         <button
           onClick={() => setUploadOpen(true)}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white text-sm font-medium transition-all shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40 cursor-pointer"
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#91b2dd] text-black text-sm font-medium cursor-pointer"
         >
           <HiOutlinePlus className="w-4 h-4" />
           Upload

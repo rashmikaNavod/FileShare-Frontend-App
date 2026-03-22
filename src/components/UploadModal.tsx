@@ -76,7 +76,7 @@ export default function UploadModal({
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 transition"
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#91b2dd] transition"
             placeholder="My awesome file"
           />
         </label>
@@ -89,7 +89,7 @@ export default function UploadModal({
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows={3}
-            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 transition resize-none"
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#91b2dd] transition resize-none"
             placeholder="A short description…"
           />
         </label>
@@ -100,7 +100,7 @@ export default function UploadModal({
           <button
             type="button"
             onClick={() => inputRef.current?.click()}
-            className="w-full flex flex-col items-center justify-center gap-2 border-2 border-dashed border-white/10 hover:border-violet-500/40 rounded-lg py-6 text-zinc-500 hover:text-violet-400 transition-colors cursor-pointer"
+            className="w-full flex flex-col items-center justify-center gap-2 border-2 border-dashed border-white/10 hover:border-[#91b2dd] rounded-lg py-6 text-zinc-500 hover:text-[#91b2dd] transition-colors cursor-pointer"
           >
             <HiOutlineCloudUpload className="w-8 h-8" />
             <span className="text-sm">
@@ -119,13 +119,13 @@ export default function UploadModal({
         <button
           type="submit"
           disabled={submitting || !file}
-          className="w-full py-2.5 rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white text-sm font-medium transition disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
+          className="w-full py-2.5 rounded-lg  bg-[#91b2dd] text-black text-sm font-medium transition disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
         >
           {submitting
             ? "Processing…"
             : mode === "edit"
-            ? "Update"
-            : "Upload"}
+              ? "Update"
+              : "Upload"}
         </button>
       </form>
     </div>

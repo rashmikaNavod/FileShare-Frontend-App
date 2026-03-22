@@ -30,9 +30,9 @@ export default function RegisterPage() {
     <div className="flex items-center justify-center min-h-[calc(100vh-15rem)] px-6">
       <div className="w-full max-w-sm">
         {/* icon */}
-        <div className="flex justify-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/30">
-            <HiOutlineUserAdd className="w-7 h-7 text-white" />
+        <div className="flex justify-center mb-5">
+          <div className="w-14 h-14 rounded-sm bg-[#91b2dd] flex items-center justify-center">
+            <HiOutlineUserAdd className="w-7 h-7 text-black" />
           </div>
         </div>
 
@@ -50,7 +50,7 @@ export default function RegisterPage() {
               onChange={(e) => setUsername(e.target.value)}
               pattern="^[a-zA-Z][a-zA-Z0-9_]{2,19}$"
               title="Start with a letter, 3-20 chars, letters/numbers/underscores"
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 transition"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#91b2dd] transition"
               placeholder="johndoe"
             />
           </label>
@@ -62,7 +62,7 @@ export default function RegisterPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 transition"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#91b2dd] transition"
               placeholder="john@example.com"
             />
           </label>
@@ -76,7 +76,7 @@ export default function RegisterPage() {
               onChange={(e) => setPassword(e.target.value)}
               pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$"
               title="8-20 characters with uppercase, lowercase, number, and special character"
-              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-violet-500/50 transition"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm placeholder-zinc-600 focus:outline-none focus:ring-2 focus:ring-[#91b2dd] transition"
               placeholder="••••••••"
             />
           </label>
@@ -84,7 +84,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white text-sm font-medium transition disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
+            className="w-full py-2.5 rounded-lg bg-[#91b2dd] text-black text-sm font-medium transition disabled:opacity-40 cursor-pointer disabled:cursor-not-allowed"
           >
             {loading ? "Creating…" : "Create Account"}
           </button>
@@ -92,7 +92,7 @@ export default function RegisterPage() {
 
         <p className="mt-6 text-center text-sm text-zinc-500">
           Already have an account?{" "}
-          <Link href="/login" className="text-violet-400 hover:text-violet-300 transition-colors">
+          <Link href="/login" className="text-[#8ab4f8] hover:text-white transition-colors">
             Sign in
           </Link>
         </p>

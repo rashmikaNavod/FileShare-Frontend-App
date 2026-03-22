@@ -124,7 +124,7 @@ export default function SharePage({
             <a
               href={downloadUrl}
               download={details.title}
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white text-sm font-medium transition-all"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-sm bg-[#91b2dd] text-black text-sm font-medium transition-all"
             >
               <HiOutlineDownload className="w-4 h-4" />
               Download
