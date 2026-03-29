@@ -8,15 +8,15 @@ export default function HomePage() {
     <div className="flex flex-col items-center justify-center px-6 pt-24 pb-16">
       {/* hero */}
       <div className="relative mb-8">
-        <div className="absolute -inset-6 bg-violet-500/20 blur-3xl rounded-full" />
-        <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/30">
-          <HiOutlineShare className="w-10 h-10 text-white" />
+        <div className=" rounded-full" />
+        <div className="relative w-20 h-20 rounded-2xl bg-[#91b2dd] flex items-center justify-center">
+          <HiOutlineShare className="w-10 h-10 text-black" />
         </div>
       </div>
 
       <h1 className="text-4xl sm:text-5xl font-bold text-center leading-tight mb-4">
         Share files{" "}
-        <span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+        <span className=" bg-clip-text text-[#8ab4f8]">
           effortlessly
         </span>
       </h1>
@@ -29,7 +29,7 @@ export default function HomePage() {
       <div className="flex gap-4">
         <Link
           href="/register"
-          className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white font-medium transition-all shadow-lg shadow-violet-500/20 hover:shadow-violet-500/40"
+          className="px-6 py-3 rounded-xl bg-[#91b2dd] text-black font-medium transition-all"
         >
           Get Started
         </Link>
@@ -62,9 +62,9 @@ export default function HomePage() {
         ].map((f) => (
           <div
             key={f.title}
-            className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 hover:border-violet-500/20 transition-colors"
+            className="bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 hover:border-[#8ab4f8] transition-colors"
           >
-            <f.icon className="w-8 h-8 text-violet-400 mb-3" />
+            <f.icon className="w-8 h-8 text-[#8ab4f8] mb-3" />
             <h3 className="text-white font-semibold mb-1">{f.title}</h3>
             <p className="text-zinc-500 text-sm leading-relaxed">{f.desc}</p>
           </div>

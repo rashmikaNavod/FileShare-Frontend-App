@@ -9,7 +9,8 @@ import type {
 } from "@/types";
 import { LocalFile } from "@/store/file-store";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:7000";
+// const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:7000";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://136.110.174.17:80";
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -133,9 +134,9 @@ export async function getMyFiles(): Promise<FileDetailsDTO[]> {
 
 
 api.interceptors.response.use(
-  (response) => response, 
+  (response) => response,
   (error) => {
-    
+
     if (error.response && error.response.status === 401) {
       console.warn("Token expired or invalid. Logging out...");
 
