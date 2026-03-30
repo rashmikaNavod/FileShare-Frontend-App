@@ -18,7 +18,42 @@ export default function FileCard({ file, onDelete, onEdit }: Props) {
       : "";
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(shareUrl);
+    const fallbackCopyTextToClipboard = (text: string) => {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        const ok = document.execCommand("copy");
+        alert(ok ? "Link copied!" : "Copy failed");
+      } catch (err) {
+        console.error("Fallback copy failed:", err);
+        alert("Copy failed");
+      }
+
+      document.body.removeChild(textArea);
+    };
+
+    const handleCopy = async () => {
+      const url = `${window.location.origin}/share/${shareId}`;
+
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(url);
+          alert("Link copied!");
+        } else {
+          fallbackCopyTextToClipboard(url);
+        }
+      } catch (err) {
+        console.error("Clipboard copy failed:", err);
+        fallbackCopyTextToClipboard(url);
+      }
+    };
   };
 
   return (
