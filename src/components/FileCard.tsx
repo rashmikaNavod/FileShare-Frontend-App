@@ -2,6 +2,7 @@
 
 import { HiOutlineTrash, HiOutlinePencil, HiOutlineClipboardCopy, HiOutlineExternalLink } from "react-icons/hi";
 import type { FileDetailsDTO } from "@/types";
+import { useToast } from "@/components/Toast";
 
 interface Props {
   file: FileDetailsDTO;
@@ -12,6 +13,7 @@ interface Props {
 export default function FileCard({ file, onDelete, onEdit }: Props) {
   const { title, shareId, fileSize, fileType } = file;
   const sizeInMB = (fileSize / (1024 * 1024)).toFixed(2) + " MB";
+  const { toast } = useToast();
 
   // Share URL එක මෙතනදී හදාගන්නවා
   const shareUrl = typeof window !== "undefined"
@@ -26,7 +28,7 @@ export default function FileCard({ file, onDelete, onEdit }: Props) {
       // 1. මුලින්ම modern navigator API එක උත්සාහ කරන්න (HTTPS අවශ්‍යයි)
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(shareUrl);
-        alert("Link copied to clipboard!");
+        toast("Link copied!", "success"); // Alert එක වෙනුවට toast
       } else {
         throw new Error("Clipboard API not available");
       }
@@ -49,13 +51,13 @@ export default function FileCard({ file, onDelete, onEdit }: Props) {
         document.body.removeChild(textArea);
 
         if (successful) {
-          alert("Link copied! (Fallback)");
+          toast("Link copied!", "success"); // Fallback success toast
         } else {
-          alert("Failed to copy link.");
+          toast("Failed to copy link.", "error"); // Fallback error toast
         }
       } catch (fallbackErr) {
         console.error("Fallback copy failed:", fallbackErr);
-        alert("Could not copy link. Please copy it manually.");
+        toast("Could not copy link.", "error"); // Final error toast
       }
     }
   };
@@ -65,10 +67,10 @@ export default function FileCard({ file, onDelete, onEdit }: Props) {
       <div className="flex items-start justify-between mb-3">
         <h3 className="text-white font-medium truncate pr-2">{title}</h3>
         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button onClick={() => onEdit(shareId)} className="p-1.5 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-violet-400 transition-colors">
+          <button onClick={() => onEdit(shareId)} className="p-1.5 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-violet-400 transition-colors cursor-pointer">
             <HiOutlinePencil className="w-4 h-4" />
           </button>
-          <button onClick={() => onDelete(shareId)} className="p-1.5 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-red-400 transition-colors">
+          <button onClick={() => onDelete(shareId)} className="p-1.5 rounded-lg hover:bg-white/10 text-zinc-400 hover:text-red-400 transition-colors cursor-pointer">
             <HiOutlineTrash className="w-4 h-4" />
           </button>
         </div>
